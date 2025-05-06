@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Find 5 Fejl</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+    }
+    #image-container {
+      position: relative;
+      display: inline-block;
+    }
+    #main-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find 5 Fejl</h1>
+  <p>Klik 5 steder på billedet</p>
+  <div id="image-container">
+    <img id="main-image" src="billede.jpg" alt="Find Fejl">
+  </div>
+
+  <script>
+    const img = document.getElementById('main-image');
+    const container = document.getElementById('image-container');
+    let clicks = 0;
+
+    img.addEventListener('click', function (e) {
+      if (clicks >= 5) return;
+
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const marker = document.createElement('div');
+      marker.className = 'marker';
+      marker.style.left = `${x}px`;
+      marker.style.top = `${y}px`;
+
+      container.appendChild(marker);
+      clicks++;
+    });
+  </script>
+</body>
+</html>
