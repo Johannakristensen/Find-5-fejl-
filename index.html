@@ -18,11 +18,12 @@
     }
     .marker {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
+      width: 40px;  /* Større størrelse */
+      height: 40px;  /* Større størrelse */
+      background-color: transparent;  /* Gør baggrunden gennemsigtig */
+      border: 10px solid red;  /* Lav en rød kant rundt om cirklen */
+      border-radius: 50%;  /* Gør det til en cirkel */
+      transform: translate(-50%, -50%);  /* Centrer markøren */
       pointer-events: none;
     }
   </style>
@@ -31,8 +32,7 @@
   <h1>Find 5 Fejl</h1>
   <p>Klik 5 steder på billedet</p>
   <div id="image-container">
-<img id="main-image" src="https://github.com/Johannakristensen/Find-5-fejl-/raw/main/IMG_8023.JPG" alt="Find Fejl">
-
+    <img id="main-image" src="https://github.com/Johannakristensen/Find-5-fejl-/raw/main/IMG_8023.JPG" alt="Find Fejl">
   </div>
 
   <script>
